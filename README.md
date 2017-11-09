@@ -1,4 +1,4 @@
-## Introduction
+# React / Redux Best Practices
 
 In the past year, our team has re-written one of our internal apps from Angular to React.   While prior React experience on the team ranged from new to experienced, we learned a lot along this journey.   Much of what we learned has been from experiencing pain points in development, or inefficiencies, and either researching others’ best practices, or experimenting with what works best for us.
 
