@@ -254,6 +254,18 @@ const mapStateToProps = (state: IStateReduced, props: IOwnProps): IReduxProps =>
 
 This is more code, but has the benefit during refactoring.
 
+## Handle modifications in Redux immutably!
+
+The Redux docs tell you to handle data immutably, but the Redux library doesn't care what you do.  This is why many recommend using immutable.js, as that handles it for you.  However, if, for whatever reason, you don't want to use immutable.js, then you need to be very careful in handling redux state modifications.  One reason not to use immutable may be if you want to leverage the full power of Typescript, as immutable.js doesn't have perfect integration with Tyepscript.
+
+Avoid directly modifying the state:
+
+TBD
+
+Instead, first clone any objects before modifying them.
+
+TBD
+
 ## Export both the component and the connected component.
 
 This is the same concept as presentational and container components.  This allows for much easier component testing.  The container connects redux data to the presentational component.  
