@@ -422,6 +422,8 @@ Avoid having no plan or using different tslint configs or styles.
 
 Instead, agree upon common code styling amongst your team.  I would even go as far to say agree upon common paradigms.  For example should you always avoid functional stateless components or will you use them in certain circumstances?  If you have no agreed upon style,  you may write a simple functional component which then another member needs to rewrite to a full component if the requirements change where lifecycle methods are required. 
 
+One very easy to way to force a consistent style and format is through an IDE plugin like https://prettier.io/
+
 Use CI, and have functional tests in CI or executable by development
 The closer you can get the functional tests to the developer, the less bugs the developer will push or the quicker they will be able to test them.  The goal is for development to find the bugs before QA.  This is not possible unless there is a more comprehensive testing, like functional testing done before the code hits QA.
 
