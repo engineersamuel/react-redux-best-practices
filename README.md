@@ -435,6 +435,12 @@ Avoid functional and/or integration tests that are only run by QA.  This creates
 
 Instead, move your functional tests as close to development as possible, preferably allow development to be able to execute some level of functional or even integration testing before merging PRs.  Consider Jest snapshot testing as well which is very fast.  The goal is to allow near instant feedback on newly written code.  The longer it takes to get that feedback, the longer it will take to identify and fix bugs.
 
+## Use null for initial state
+
+With redux state you could choose an initial state of either null or some default value like `[]` for an array or `''` for a string.  It is not adviseable to use any sort of empty value like `[]` or `''` considering these are also valid values.
+
+For instance if you want to detect if a value has changed and highlight that value in the UI, if the default value for an array is `[]` then the UI would think `[] => [a, b, c]` was a change, when really it wasn't, that was just the initial populating of data.  However, if your initial state variables are always set to null, then `null -> [a, b, c]` can easily detected and handled.
+
 ## Conclusion
 
 The above recommendations represent things we’ve found to make our team more productive and to help manage risk.  Each recommendation may not be the best practice for you or your product, but we hope they give you some insights to ponder.  The higher level take away is to pursue efficiency and productivity during your development process.  Even a small improvement in something like your dev side build speed can translate to many hours saved in the long run.   Take some time to consider the above recommendations, and search for other articles on best practice with React, there is a lot of great content out there to learn from.
