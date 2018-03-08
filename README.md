@@ -79,16 +79,10 @@ Avoid this:
 interface IActionProductName { productName: string; }
 interface IActionProductVersion { productVersion string; }
 
-const requestUpdateProductVersion = createAction<interfaces.IActionProductName & interfaces.IActionProductVersion, void>(types.REQUEST_UPDATE_PRODUCT_VERSION,
-    (productName: string, productVersion: string) => ({productName, productVersion}),
-    null
-);
-const receiveUpdateProductVersion = createAction<interfaces.IActionProductName & interfaces.IActionProductVersion, interfaces.IMetaIsXhrError>(types.RECEIVE_UPDATE_PRODUCT_VERSION,
-    (productName: string, productVersion: string) => ({productName, productVersion}),
-    isXhrError
-);
+const requestUpdateProductVersion = createAction<interfaces.IActionProductName & interfaces.IActionProductVersion>(types.REQUEST_UPDATE_PRODUCT_VERSION);
+const receiveUpdateProductVersion = createAction<interfaces.IActionProductName & interfaces.IActionProductVersion>(types.RECEIVE_UPDATE_PRODUCT_VERSION);
 
-[types.RECEIVE_UPDATE_PRODUCT_VERSION]: (state: ICaseDetailsState, action: ActionMeta<interfaces.IActionProductName & interfaces.IActionProductName, interfaces.IMetaIsXhrError>): ICaseDetailsState => {
+[types.RECEIVE_UPDATE_PRODUCT_VERSION]: (state: ICaseDetailsState, action: Action<interfaces.IActionProductName & interfaces.IActionProductName>): ICaseDetailsState => {
     // ...
 });
 ```
@@ -103,14 +97,8 @@ interface IActionUpdateProductNameVersion {
     productVersion: string;
 }
 
-const requestUpdateProductVersion = createAction<interfaces.IActionUpdateProductNameVersion, void>(types.REQUEST_UPDATE_PRODUCT_VERSION,
-    (productName: string, productVersion: string) => ({productName, productVersion}),
-    null
-);
-const receiveUpdateProductVersion = createAction<interfaces.IActionUpdateProductNameVersion, interfaces.IMetaIsXhrError>(types.RECEIVE_UPDATE_PRODUCT_VERSION,
-    (productName: string, productVersion: string) => ({productName, productVersion}),
-    isXhrError
-);
+const requestUpdateProductVersion = createAction<interfaces.IActionUpdateProductNameVersion>(types.REQUEST_UPDATE_PRODUCT_VERSION);
+const receiveUpdateProductVersion = createAction<interfaces.IActionUpdateProductNameVersion>(types.RECEIVE_UPDATE_PRODUCT_VERSION);
 
 [types.RECEIVE_UPDATE_PRODUCT_VERSION]: (state: ICaseDetailsState, action: ActionMeta<interfaces.IActionUpdateProductNameVersion, interfaces.IMetaIsXhrError>): ICaseDetailsState => {
     // ...
